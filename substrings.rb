@@ -11,11 +11,11 @@ def substrings(word, dictionary)
   results = Hash.new(0)
   letter_array = word.split("")
   dictionary.each do |dictionary_word| 
-    if(word.include?(dictionary_word) == true)
-      results[dictionary_word] = results[dictionary_word] += 1
+    if(word.downcase.include?(dictionary_word) == true)
+      results[dictionary_word] = word.downcase.scan(/#{dictionary_word}/).length
     end
   end
   puts results
 end
 
-substrings("below", dictionary)
+substrings("Howdy partner, sit down! How's it going?", dictionary)
